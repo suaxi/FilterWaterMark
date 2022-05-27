@@ -27,10 +27,10 @@ public class Result {
     @ApiModelProperty("视频封面")
     private Image cover;
 
-    @ApiModelProperty("图片集合")
+    @ApiModelProperty("视频集合")
     private List<Video> videos;
 
-    @ApiModelProperty("视频集合")
+    @ApiModelProperty("图片集合")
     private List<Image> images;
 
     @Data

@@ -1,5 +1,6 @@
 package com.sw.filterwatermark.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.PathSelectors;
@@ -18,9 +19,13 @@ import java.util.Collections;
 @Configuration
 public class SwaggerConfig {
 
+    @Value("${swagger.enable}")
+    private boolean isEnable;
+
     @Bean
     public Docket defaultApi() {
         return new Docket(DocumentationType.SWAGGER_2)
+                .enable(isEnable)
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.sw"))
                 .paths(PathSelectors.any())
